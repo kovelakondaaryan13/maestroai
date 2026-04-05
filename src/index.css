@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;900&family=Playfair+Display:wght@700;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-studio-bg: #FFFDF9;
+  --color-studio-card: #FFFFFF;
+  --color-studio-accent: #C5A059;
+  --color-studio-neon: #A67C37;
+  --color-studio-border: #E8E2D9;
+}
+
+@layer base {
+  body {
+    @apply bg-studio-bg text-slate-800 font-sans antialiased;
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(197, 160, 89, 0.08) 0%, transparent 50%),
+      linear-gradient(rgba(197, 160, 89, 0.02) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 40px;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-studio-card backdrop-blur-xl border border-studio-border rounded-3xl shadow-xl shadow-amber-900/5;
+  }
+  
+  .studio-button-primary {
+    @apply px-6 py-3 rounded-2xl font-bold transition-all active:scale-95 disabled:opacity-50 bg-studio-accent text-white shadow-lg shadow-amber-900/10 hover:bg-studio-neon hover:shadow-amber-900/20;
+  }
+  
+  .studio-button-secondary {
+    @apply px-6 py-3 rounded-2xl font-bold transition-all active:scale-95 disabled:opacity-50 bg-white text-amber-900/70 hover:bg-amber-50 border border-studio-border shadow-sm;
+  }
+}
+
+.markdown-body {
+  @apply text-slate-700 leading-relaxed space-y-4;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  @apply font-serif text-slate-900 font-black tracking-tight mt-6 mb-2;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside space-y-2;
+}
+
+.markdown-body strong {
+  @apply text-studio-neon font-bold;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-studio-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-studio-border rounded-full hover:bg-zinc-700 transition-colors;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}

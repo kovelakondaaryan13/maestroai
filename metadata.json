@@ -1,0 +1,5 @@
+{
+  "name": "Maestro AI Music Coach",
+  "description": "Real-time pitch detection and AI-powered music coaching for singing and guitar.",
+  "requestFramePermissions": ["microphone"]
+}
